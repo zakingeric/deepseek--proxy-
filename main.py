@@ -5,7 +5,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-DEEPSEEK_API_KEY = "sk-8686f6e5d794407c84cccebe1235f476"
+import os
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY")
 DEEPSEEK_URL = "https://api.deepseek.com/v1/chat/completions"
 
 @app.route('/generate', methods=['POST'])
